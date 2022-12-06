@@ -1,7 +1,7 @@
 SELECT 
-	  MIN(p.plan_price) faturamento_minimo,
-	  MAX(p.plan_price) faturamento_maximo,
-    ROUND(AVG(p.plan_price),2) faturamento_medio,
-    ROUND(SUM(plan_price),2) faturamento_total
-FROM plan p
-INNER JOIN user u ON u.plan_id = p.plan_id ;
+    ROUND(MIN(p.plan_price), 2) AS faturamento_minimo,
+    MAX(p.plan_price) AS faturamento_maximo,
+    ROUND(AVG(p.plan_price), 2) AS faturamento_medio,
+    ROUND(SUM(p.plan_price), 2) AS faturamento_total
+FROM plan AS p
+INNER JOIN users AS u ON u.plan_id = p.plan_id ;
